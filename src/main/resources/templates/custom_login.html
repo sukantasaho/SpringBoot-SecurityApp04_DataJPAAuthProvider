@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Security Login</title>
+<style>
+	.container
+	{
+		background-color: #3B5998;
+		color: white;
+		margin-left: 500px;
+		margin-right: 500px;
+		padding-bottom: 20px;
+		font-size: 25px;
+		border-radius: 10px;
+		border: 2px solid green;
+		padding-bottom: 30px;
+	}
+	td
+	{
+		padding-bottom: 10px;
+	}
+	h3
+	{
+		color:red;
+	}
+	h2
+	{
+		color:green;
+	}
+</style>
+</head>
+<body>
+	<h1 style="color: #3B5998;text-align: center;">Custom Login Form</h1>
+	<hr>
+	<div class="container">
+   <form th:action="@{/login}" method="post">
+	   <table align="center">
+		   <tr>
+			   <td>Username :</td>
+			   <td><input type="text" name="username" placeholder="Enter your username"/></td>
+		   </tr>
+		   <tr>
+			   <td>Password  :</td><br>
+			   <td><input  type="password" name="password" placeholder="Enter your password"/></td>
+		   </tr>
+		   <tr>
+			   <td><input type="submit" value="Login"></td><br>
+			   <td><input type="reset" value="Reset"/></td>
+		   </tr>
+	   </table>
+   </form>
+   </div>
+   <center><h3><b><span th:if="${param.error}">Authentication Failed(Invalid Credentials)</span></b></h3></center>
+   <center><h2><b><span th:if="${param.logout}">User Successfully Logged Out</span></b></h2></center>
+</body>
+</html>
